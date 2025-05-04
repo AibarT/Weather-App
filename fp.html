@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="fp.css">
+</head>
+<body>
+    <div class="c1">
+        <input type="text" id="cities" placeholder="Қала атын жазыңыз">
+        <button id="button">Таңдау</button>
+    </div>
+    <div class="language-switcher">
+        <button class="lang-btnk" id="kz">Қаз</button>
+        <button class="lang-btnr" id="ru">Рус</button>
+        <button class="lang-btne" id="en">Eng</button>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper">
+            <div class="swiper-wrapper" id="weather-cards">
+            </div>
+        </div>
+    </div>
+    
+    <script src="fp.js"></script>
+</body>
+</html>
