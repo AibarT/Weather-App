@@ -6,15 +6,6 @@ let rub = document.getElementById("ru");
 let enb = document.getElementById("en");
 let lang = "kz"; 
 
-kzb.addEventListener('click', function(){
-    lang = "kz"
-})
-rub.addEventListener('click', function(){
-    lang = "ru"
-})
-enb.addEventListener('click', function(){
-    lang = "en"
-})
 
 const translations = {
     kz: {
@@ -120,6 +111,7 @@ function updateWeatherCards(data) {
         }else {
             tempColor = 'rgb(0, 0, 165)';
         }
+        button.innerHTML = translations[lang].button
             
         card.innerHTML = `
             <div class="weathercard">
@@ -187,3 +179,60 @@ function getMoonIcon(phase) {
 
     return phases[phase] || {icon: "🌙", kz: "Ай", ru: "Луна"};
 }
+kzb.addEventListener('click', function(){
+    lang = "kz"
+    let city = citiesInput.value.trim();
+    if (!city) return;
+    let userinfo = [];
+    userinfo.push({city:citiesInput.value})
+    localStorage.setItem('city', JSON.stringify(userinfo))
+        
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key=0a447dc803d64e249b192310252903&q=${city}&days=3&aqi=no&alerts=no`)
+        .then(response => response.json())
+        .then(data => {
+            updateWeatherCards(data);
+            console.log(data)
+        })
+        .catch(err => {
+            console.error("Error:", err);
+            showError();
+        });
+})
+rub.addEventListener('click', function(){
+    lang = "ru"
+    let city = citiesInput.value.trim();
+    if (!city) return;
+    let userinfo = [];
+    userinfo.push({city:citiesInput.value})
+    localStorage.setItem('city', JSON.stringify(userinfo))
+        
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key=0a447dc803d64e249b192310252903&q=${city}&days=3&aqi=no&alerts=no`)
+        .then(response => response.json())
+        .then(data => {
+            updateWeatherCards(data);
+            console.log(data)
+        })
+        .catch(err => {
+            console.error("Error:", err);
+            showError();
+        });
+})
+enb.addEventListener('click', function(){
+    lang = "en"
+    let city = citiesInput.value.trim();
+    if (!city) return;
+    let userinfo = [];
+    userinfo.push({city:citiesInput.value})
+    localStorage.setItem('city', JSON.stringify(userinfo))
+        
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key=0a447dc803d64e249b192310252903&q=${city}&days=3&aqi=no&alerts=no`)
+        .then(response => response.json())
+        .then(data => {
+            updateWeatherCards(data);
+            console.log(data)
+        })
+        .catch(err => {
+            console.error("Error:", err);
+            showError();
+        });
+})
