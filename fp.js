@@ -4,7 +4,7 @@ let weatherCardsContainer = document.getElementById('weather-cards');
 let kzb = document.getElementById("kz");
 let rub = document.getElementById("ru");
 let enb = document.getElementById("en");
-let lang = "ru"; 
+let lang = "kz"; 
 
 kzb.addEventListener('click', function(){
     lang = "kz"

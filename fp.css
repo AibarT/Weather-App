@@ -246,15 +246,15 @@ button:active {
     }
     .astrocontainer {
         flex-direction: column;
-        gap: 10px;
+        gap: 0px;
         align-items: center;
     }
     
     .suntimes {
-        gap: 23px;
+        gap: 20px;
     }
     
     .moonphase {
-        margin-top: 5px;
+        margin-top: 0px;
     }
 }  
