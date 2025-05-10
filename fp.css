@@ -214,6 +214,9 @@ button:active {
     .swiper-slide {
         width: 75%;
     }
+    .weatherinfo {
+        font-size: 15px;
+    }
     
     .weathercard {
         padding: 10px;
@@ -227,19 +230,19 @@ button:active {
     }
     
     .cityname {
-        font-size: 20px;
+        font-size: 18px;
     }
     
     .date {
-        font-size: 16px;
+        font-size: 15px;
     }
     
     .weatherinfo {
-        font-size: 16px;
+        font-size: 15px;
     }
     
     .temphighlight {
-        font-size: 18px;
+        font-size: 17px;
     }
     .astrocontainer {
         flex-direction: column;
