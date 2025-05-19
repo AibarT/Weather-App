@@ -10,7 +10,7 @@ let cityname = document.getElementById('cityname')
 let date = document.getElementById('date')
 let toggleMapBtn = document.getElementById("toggleMapBtn");
 
-let map = L.map('map').setView([48.0196, 66.9237], 5); // Центр Казахстана
+let map = L.map('map').setView([48.0196, 66.9237], 5); 
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
@@ -31,6 +31,7 @@ function updateMap(city) {
                 }
                 marker = L.marker([lat, lon]).addTo(map).bindPopup(city).openPopup();
             }
+            
         });
 }
 
@@ -108,11 +109,15 @@ button.addEventListener('click', function() {
     let city = citiesInput.value.trim();
     if (!city) return;
     updateMap(city);
+    let user_info = [];
+    user_info.push({ city: citiesInput.value})
+    localStorage.setItem('city', JSON.stringify(user_info))
     
     fetch(`https://api.weatherapi.com/v1/forecast.json?key=0a447dc803d64e249b192310252903&q=${city}&days=3&aqi=no&alerts=no`)
         .then(response => response.json())
         .then(data => {
             updateWeatherCards(data);
+            console.log(data)
             setTimeout(() => {
                 const activeSlide = document.querySelector('.swiper-slide-active');
                 if (activeSlide) {
@@ -169,7 +174,7 @@ function updateWeatherCards(data) {
         cityname.innerHTML = data.location.name
 
         card.innerHTML = `
-            <div class="date">${dayName}</div>
+            <div class="date">${dayName} </div>
             <div class="weathercard" id="card">
                 <img class="weathericon" src="https:${condition.icon}" alt="${condition.text}">
                 <div class="weatherinfo">
